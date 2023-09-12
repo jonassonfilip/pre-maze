@@ -3,16 +3,35 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
 }
 
-
-
 .welcomePage {
-  background: url(/scoopit/public/scoop-purple.jpeg) lightgray 50% / cover no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .welcomeHeader {
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.nextPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Add padding to create space between barOne and roundButton */
+}
+
+.left {
+  flex: 1; /* Take up all available space on the left side */
+}
+
+.right {
+  flex: 1; /* Take up all available space on the right side */
+  text-align: right; /* Align the content on the right side */
 }

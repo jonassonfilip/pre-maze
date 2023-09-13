@@ -10,43 +10,46 @@ import RoundButton from "../components/RoundButton";
 
 export default function Welcome () {
     return (
-        <main className="welcomePage">
-            <section>
-            <div className="welcomeHeader">
-            <Image
-          src={scoopImage}
-          alt="A scoop of ice cream"
-          width={390}
-          height={502}
-        />
-            </div>
-
-        <div className="welcomeFooter">
+        <main>
+            <section className="welcomeHeader" style={{
+      backgroundImage: `url(${scoopImage.src})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      margin: '0',
+      width: '100%',
+      height: '80vh',
+    }}>
+            </section>
+        <section className="welcomeFooter">
             <h2>Välkommen till Scoopit!</h2>
             <p>Säg adjö till prenumerationskaos. Vi har koll på att förenkla dina prenumerationer. Låt oss komma igång!</p>
-        </div>
         </section>
+        
 
-        <section className="nextPage">
-        <div className="left">
-          <Image
-            src={barOne}
-            alt="Bar that shows where you are"
-            width={78}
-            height={4}
-          />
-        </div>
-        <div className="right">
-          <Link href="./welcome-second">
-            <Image
-              src={roundButton}
-              alt="Button to next page"
-              width={64}
-              height={64}
-            />
-          </Link>
-        </div>
-      </section>
+        <section className="nextPage" style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingRight: '32px',
+      paddingLeft: '22px'
+    }}>
+    <Image
+      src={barOne}
+      alt="Bar that shows where you are"
+      width={78}
+      height={4}
+    />
+
+    <Link href="./welcome-second">
+      <Image
+        src={roundButton}
+        alt="Button to next page"
+        width={64}
+        height={64}
+      />
+    </Link>
+
+</section>
         
         </main>
     )

@@ -1,6 +1,10 @@
 :root {
  
-
+  --primary-base-dark : #797979;
+  --primary-base: #FFFFFF;
+  --primary-base-light: #DDDDDD;
+  --secundary-background: #747474;
+}
 * {
   
   padding: 0;
@@ -10,7 +14,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden; 
 }
 
 body {
@@ -24,8 +28,13 @@ a {
 }
 
 h1 {
-  
-}
+  color: var(--primary-base-dark);
+  font-family: Degular Variable;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
 
 h2 {
   font-size: 20px;
@@ -39,6 +48,4 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
-
 }

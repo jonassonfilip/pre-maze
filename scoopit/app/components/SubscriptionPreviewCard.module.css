@@ -1,0 +1,26 @@
+.previewCardContainer {
+  padding: 0.625rem 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.leftSide {
+  display: flex;
+}
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.previewCardContainer img {
+  margin-right: 1rem;
+}
+
+.infoTextPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

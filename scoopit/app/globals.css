@@ -1,8 +1,13 @@
 :root {
-  --primary-base-dark : #797979;
-  --primary-base: #FFFFFF;
-  --primary-base-light: #DDDDDD;
+  --primary-base-dark: #320029;
+  --primary-base: #ffffff;
+  --primary-base-light: #dddddd;
   --secundary-background: #747474;
+
+  --color-music: #f2b360;
+  --color-books-and-media: #81ced5;
+  --color-movies-and-tv: #bc6cca;
+  --color-webb-and-other: #f13c59;
 }
 * {
   padding: 0;
@@ -12,11 +17,11 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'Inter';
+  font-family: "Inter";
   color: #181818;
 }
 
@@ -28,22 +33,24 @@ a {
 h1 {
   color: var(--primary-base-dark);
   font-family: Degular Variable;
-  font-size: 32px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  }
+}
 
 h2 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
 
 p {
-  font-size: 16px;
+  color: var(--primr-p-bas-mrk, #320029);
+  font-family: Degular Variable;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: normal;
 }

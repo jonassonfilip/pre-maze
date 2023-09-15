@@ -39,8 +39,8 @@ export default function ThirdPage () {
             <Image
               src={roundButton}
               alt="Button to next page"
-              width={64}
-              height={64}
+              width={114}
+              height={114}
             />
           </Link>
         </div>

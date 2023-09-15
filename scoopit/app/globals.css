@@ -1,12 +1,10 @@
 :root {
- 
   --primary-base-dark : #797979;
   --primary-base: #FFFFFF;
   --primary-base-light: #DDDDDD;
   --secundary-background: #747474;
 }
 * {
-  
   padding: 0;
   margin: 0;
 }

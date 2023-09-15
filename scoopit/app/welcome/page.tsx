@@ -5,22 +5,24 @@ import Image from "next/image";
 import scoopImage from "/public/scoop-purple.jpeg";
 import roundButton from "/public/Onboarding-button.png";
 import barOne from "/public/Bar1.png";
+import styles from "./page.module.css";
 import RoundButton from "../components/RoundButton";
 
 
 export default function Welcome () {
     return (
         <main>
-            <section className="welcomeHeader" style={{
+            <section className={styles.welcomeHeader} style={{
       backgroundImage: `url(${scoopImage.src})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       margin: '0',
       width: '100%',
-      height: '80vh',
+      height: '502px',
     }}>
             </section>
-        <section className="welcomeFooter">
+            
+        <section className={styles.welcomeFooter}>
             <h2>Välkommen till Scoopit!</h2>
             <p>Säg adjö till prenumerationskaos. Vi har koll på att förenkla dina prenumerationer. Låt oss komma igång!</p>
         </section>
@@ -30,7 +32,6 @@ export default function Welcome () {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingRight: '32px',
       paddingLeft: '22px'
     }}>
     <Image
@@ -44,8 +45,8 @@ export default function Welcome () {
       <Image
         src={roundButton}
         alt="Button to next page"
-        width={64}
-        height={64}
+        width={114}
+        height={114}
       />
     </Link>
 

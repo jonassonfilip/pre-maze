@@ -13,12 +13,7 @@ export default function Welcome () {
     return (
         <main>
             <section className={styles.welcomeHeader} style={{
-      backgroundImage: `url(${scoopImage.src})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      margin: '0',
-      width: '100%',
-      height: '502px',
+      backgroundImage: `url(${scoopImage.src})`
     }}>
             </section>
             
@@ -32,13 +27,13 @@ export default function Welcome () {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingLeft: '22px'
+      paddingLeft: '86px'
     }}>
     <Image
       src={barOne}
       alt="Bar that shows where you are"
-      width={78}
-      height={4}
+      width={30}
+      height={6}
     />
 
     <Link href="./welcome-second">

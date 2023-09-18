@@ -11,7 +11,7 @@ export default function SecondPage () {
     return (
       <main>
       <section className={styles.welcomeHeader} style={{
-backgroundImage: `url(${scoopImage.src})`
+backgroundImage: `url(${(scoopImage as any).src})`
 }}>
       </section>
       

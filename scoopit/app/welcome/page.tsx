@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-purple.jpeg";
 import roundButton from "/public/Onboarding-button.png";
+import goBack from "/public/chevron-right.png"
 import barOne from "/public/Bar1.png";
 import styles from "./page.module.css";
 import RoundButton from "../components/RoundButton";
@@ -13,7 +14,7 @@ export default function Welcome () {
     return (
         <main>
             <section className={styles.welcomeHeader} style={{
-      backgroundImage: `url(${scoopImage.src})`
+      backgroundImage: `url(${(scoopImage as any).src})`
     }}>
             </section>
             

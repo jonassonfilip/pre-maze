@@ -2,7 +2,7 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import scoopImage from "/public/scoop-purple.jpeg";
+import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/Onboarding-button.png";
 import goBack from "/public/chevron-right.png"
 import barTwo from "/public/Bar2.png";

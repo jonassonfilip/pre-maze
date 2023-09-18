@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-purple.jpeg";
 import roundButton from "/public/Onboarding-button.png";
+import goBack from "/public/chevron-right.png"
 import barTwo from "/public/Bar2.png";
 import styles from "./page.module.css";
 
@@ -13,6 +14,28 @@ export default function SecondPage () {
       <section className={styles.welcomeHeader} style={{
 backgroundImage: `url(${(scoopImage as any).src})`
 }}>
+  <div className="backArrow" style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingLeft: '20px',
+      paddingRight: '20px',
+      paddingTop: "46px",
+    }}>
+      
+      <Link href="javascript:history.back()">
+      <Image
+      src={goBack}
+      alt="An arrow pointing back, taking you to the previous page"
+      width={24}
+      height={24}
+    />
+    </Link>
+
+    <Link href="./login">
+      <div>Skip</div>
+    </Link>
+    </div>
       </section>
       
   <section className={styles.welcomeFooter}>

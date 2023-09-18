@@ -1,4 +1,4 @@
-.welcomeHeader::before {
+/* .welcomeHeader::before {
     content: "";
     background-color: rgba(211, 211, 211, 0.5);
     position: absolute;
@@ -12,7 +12,7 @@
 .welcomeHeader .content {
     position: relative;
     z-index: 2;
-}
+} */
 
 .welcomeHeader {
       background-size: cover;

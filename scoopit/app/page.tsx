@@ -1,9 +1,11 @@
+import { StartPage } from './start/page';
 import Welcome from './welcome/page';
 
 export default function Home() {
   return (
     <main>
-      <Welcome></Welcome>
+      <StartPage></StartPage>
+      {/* <Welcome></Welcome> */}
     </main>
   )
 }

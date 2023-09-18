@@ -1,0 +1,65 @@
+.wrapper {
+  padding: 2rem 1rem;
+}
+
+/*Total Cost Section*/
+.totalCostSection {
+  margin: 1rem 0.625rem;
+}
+
+/*Category Thumbnails Bar*/
+
+.categorySection {
+  padding-bottom: 3.625rem;
+}
+
+.categorySection h4 {
+  padding-bottom: 1rem;
+}
+
+.categoryThumbnailsBar {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.categoryThumbnail {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.625rem 0;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--frger-musik, #f2b360);
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.11),
+    4px 7px 8px 0px rgba(0, 0, 0, 0.1), 9px 15px 11px 0px rgba(0, 0, 0, 0.06),
+    17px 27px 13px 0px rgba(0, 0, 0, 0.02), 26px 42px 14px 0px rgba(0, 0, 0, 0);
+}
+
+.music {
+  background-color: var(--color-music);
+}
+
+.book {
+  background-color: var(--color-books-and-media);
+}
+
+.movie {
+  background-color: var(--color-movies-and-tv);
+}
+
+.webb {
+  background-color: var(--color-webb-and-other);
+}
+
+/*Preview Section*/
+
+.previewTitleBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.musicSection,
+.booksAndMediaSection,
+.moviesAndTvSection,
+.otherSection {
+  padding-bottom: 3.625rem;
+}

@@ -4,10 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/get-started.png";
-import barThree from "/public/Bar3.png";
-import goBack from "/public/chevron-right.png"
+import goBack from "/public/chevron-left.png"
 import styles from "./page.module.css";
-import RoundButton from "../components/RoundButton";
 
 
 export default function Welcome () {
@@ -33,10 +31,6 @@ export default function Welcome () {
       height={24}
     />
     </Link>
-
-    <Link href="./login">
-      <div>Skip</div>
-    </Link>
           </div>
             </section>
             
@@ -48,16 +42,9 @@ export default function Welcome () {
 
         <section className="nextPage" style={{
       display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingLeft: '86px'
+      justifyContent: 'flex-end',
+      alignItems: 'center'
     }}>
-    <Image
-      src={barThree}
-      alt="Bar that shows where you are"
-      width={30}
-      height={6}
-    />
 
     <Link href="./login">
       <Image

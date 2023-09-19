@@ -4,9 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/Onboarding-button.png";
-import barOne from "/public/Bar1.png";
 import styles from "./page.module.css";
-import RoundButton from "../components/RoundButton";
 
 
 export default function Welcome () {
@@ -15,16 +13,6 @@ export default function Welcome () {
             <section className={styles.welcomeHeader} style={{
       backgroundImage: `url(${(scoopImage as any).src})`
     }}>
-
-<Link href="./login" style={{
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      paddingRight: '20px',
-      paddingTop: '46px'
-    }}>
-      <div>Skip</div>
-    </Link>
             </section>
             
         <section className={styles.welcomeFooter}>
@@ -37,14 +25,9 @@ export default function Welcome () {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingLeft: '86px'
+      paddingLeft: '20px'
     }}>
-    <Image
-      src={barOne}
-      alt="Bar that shows where you are"
-      width={30}
-      height={6}
-    />
+    <a href="./login">Hoppa över intro</a>
 
     <Link href="./welcome-second">
       <Image

@@ -1,0 +1,36 @@
+
+
+.loginHeader {
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    width: 100%;
+    height: 260px;
+}
+
+.loginChoices {
+    color: var(--primr-p-bas-mrk, #320029);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    padding: 103px 28px 32px 28px;
+}
+
+.loginChoice {
+    display: flex;
+    flex-direction: row;
+    height: 63px;
+    padding: 10px 20px 10px 5px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border: 1px solid var(--gradient-ram, rgba(204, 135, 0, 0.10));
+    border-radius: 55px;
+    margin-bottom: 16px;
+    border-radius: 55px;
+    background: var(--gradient-kort, linear-gradient(137deg, rgba(242, 179, 96, 0.10) -4.41%, rgba(248, 248, 248, 0.00) 85.07%));
+    /* Card shade */
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}

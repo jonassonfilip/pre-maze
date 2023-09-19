@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/Onboarding-button.png";
-import goBack from "/public/chevron-right.png"
-import barTwo from "/public/Bar2.png";
+import goBack from "/public/chevron-left.png"
 import styles from "./page.module.css";
 
 export default function SecondPage () {
@@ -16,10 +15,9 @@ backgroundImage: `url(${(scoopImage as any).src})`
 }}>
   <div className="backArrow" style={{
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'flex-start',
       alignItems: 'center',
       paddingLeft: '20px',
-      paddingRight: '20px',
       paddingTop: "46px",
     }}>
       
@@ -30,10 +28,6 @@ backgroundImage: `url(${(scoopImage as any).src})`
       width={24}
       height={24}
     />
-    </Link>
-
-    <Link href="./login">
-      <div>Skip</div>
     </Link>
     </div>
       </section>
@@ -49,14 +43,9 @@ en skopa bort.</h2>
 display: 'flex',
 justifyContent: 'space-between',
 alignItems: 'center',
-paddingLeft: '86px'
+paddingLeft: '20px'
 }}>
-<Image
-src={barTwo}
-alt="Bar that shows where you are"
-width={30}
-height={6}
-/>
+<a href="./login">Hoppa över intro</a>
 
 <Link href="./welcome-third">
 <Image

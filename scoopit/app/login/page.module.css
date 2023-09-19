@@ -21,16 +21,28 @@ line-height: normal;
 .loginChoice {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 63px;
     padding: 10px 20px 10px 5px;
     align-items: center;
     gap: 10px;
     align-self: stretch;
     border: 1px solid var(--gradient-ram, rgba(204, 135, 0, 0.10));
-    border-radius: 55px;
     margin-bottom: 16px;
     border-radius: 55px;
     background: var(--gradient-kort, linear-gradient(137deg, rgba(242, 179, 96, 0.10) -4.41%, rgba(248, 248, 248, 0.00) 85.07%));
     /* Card shade */
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.circle {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 9.955px;
+
+border-radius: 37.333px;
+border: 1px solid var(--primr-p-bas-ljus, #E0C2DB);
+background: var(--primr-bas, #FFF);
 }

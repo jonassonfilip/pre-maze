@@ -21,40 +21,38 @@ export default function Login () {
             </section>
             
         <section className={styles.loginChoices}>
-            <p>Skapa ett konto för att hålla koll på dina abonnemang.</p>
+            <p style={{marginBottom: '40px'}}>Skapa ett konto för att hålla koll på dina abonnemang.</p>
 
-            <div className={styles.loginChoice} style={{
-                marginTop: '32px'
-                }}><Image
+            <div className={styles.loginChoice}><div className={styles.circle}><Image
                 src={googleLogo}
                 alt="Google logo"
-                width={28}
-                height={28}
-              /><p>Fortsätt med Google-konto</p>
+                width={56}
+                height={56}
+              /></div><p>Fortsätt med Google-konto</p>
               <Image
                 src={rightArrow}
                 alt="Arrow directing to next page"
                 width={24}
                 height={24}
               /></div>
-            <div className={styles.loginChoice}><Image
+            <div className={styles.loginChoice}><div className={styles.circle}><Image
                 src={appleLogo}
                 alt="Apple logo"
-                width={28}
-                height={28}
-              /> <p>Fortsätt med Apple-konto</p>
+                width={56}
+                height={56}
+              /></div><p>Fortsätt med Apple-konto</p>
               <Image
                 src={rightArrow}
                 alt="Arrow directing to next page"
                 width={24}
                 height={24}
               /></div>
-            <div className={styles.loginChoice}><Image
+            <div className={styles.loginChoice}><div className={styles.circle}><Image
                 src={scoopitLogo}
                 alt="Scoopit logo"
-                width={28}
-                height={28}
-              /><p>Fortsätt med annat konto</p>
+                width={56}
+                height={56}
+              /></div><p>Fortsätt med annat konto</p>
               <Image
                 src={rightArrow}
                 alt="Arrow directing to next page"

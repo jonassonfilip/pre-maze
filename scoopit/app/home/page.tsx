@@ -9,7 +9,8 @@ import SearchBar from "../components/SearchBar";
 import SubscriptionPreviewCard from "../components/SubscriptionPreviewCard";
 import styles from "./home.module.css";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useState } from "react";
+import { EventEmitter } from "stream";
 
 interface ISubscription {
   name: string;
@@ -23,25 +24,47 @@ const supabase = createClientComponentClient();
 async function getSubscriptionsFromDB() {
   const { data: subscriptions, error } = await supabase
     .from("subscriptions")
-    .select();
+    .select()
+    .eq("category", 1);
 
   return subscriptions;
 }
 
+function onClickCategoryThumbnail() {
+  const otherThumbnails = document.querySelectorAll("#music");
+  console.log(otherThumbnails);
+  otherThumbnails.forEach((otherThumbnail) => {
+    otherThumbnail.classList.toggle(styles.hide);
+  });
+}
+
 export default function Home() {
-  const [subscriptions, setSubscriptions] = useState<ISubscription[] | null>(
-    []
-  );
+  const [musicSubscriptions, setMusicSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [movieAndTvSubscriptions, setMovieAndTvSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [booksAndMediaSubscriptions, setBooksAndMediaSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [webbAndOtherSubscriptions, setWebbAndOtherSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
 
   useEffect(() => {
-    getSubscriptions();
+    getSubscriptions(1);
+    getSubscriptions(3);
   }, []);
 
-  async function getSubscriptions() {
+  async function getSubscriptions(category: number) {
     let { data: subscriptionsData, error } = await supabase
       .from("subscriptions")
-      .select();
+      .select()
+      .eq("category", category);
+
     let tmpSubscriptions: ISubscription[] = [];
+
     if (subscriptionsData != null) {
       subscriptionsData.forEach((element) => {
         tmpSubscriptions.push({
@@ -52,7 +75,16 @@ export default function Home() {
         });
       });
     }
-    setSubscriptions(tmpSubscriptions);
+    switch (category) {
+      case 1:
+        setMusicSubscriptions(subscriptionsData);
+        break;
+      case 3:
+        setMovieAndTvSubscriptions(subscriptionsData);
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -76,7 +108,11 @@ export default function Home() {
         <section className={styles.categorySection}>
           <h4>Kategorier</h4>
           <div className={styles.categoryThumbnailsBar}>
-            <div className={`${styles.categoryThumbnail} ${styles.music}`}>
+            <div
+              className={`${styles.categoryThumbnail} ${styles.music}`}
+              id="music"
+              onClick={onClickCategoryThumbnail}
+            >
               <Image
                 src="./images/home/note.svg"
                 width={17}
@@ -116,24 +152,33 @@ export default function Home() {
             <h2>MUSIK</h2>
             <h2>367KR/MÅN</h2>
           </section>
-
-          {subscriptions?.map((subscription) => (
+          {musicSubscriptions?.map((subscription) => (
             <SubscriptionPreviewCard
               alt="Spotify"
               name={subscription.name}
               height={55}
               width={55}
               price={subscription.price}
-              src="./images/home/spotify.svg"
+              src={subscription.img}
             ></SubscriptionPreviewCard>
           ))}
         </section>
 
         <section className={styles.booksAndMediaSection}>
           <section className={styles.previewTitleBar}>
-            <h2>MUSIK</h2>
+            <h2>Film Och Serier</h2>
             <h2>367KR/MÅN</h2>
           </section>
+          {movieAndTvSubscriptions?.map((subscription) => (
+            <SubscriptionPreviewCard
+              alt="Spotify"
+              name={subscription.name}
+              height={55}
+              width={55}
+              price={subscription.price}
+              src={subscription.img}
+            ></SubscriptionPreviewCard>
+          ))}
         </section>
         <section className={styles.moviesAndTvSection}>
           <section className={styles.previewTitleBar}>

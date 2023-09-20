@@ -63,3 +63,7 @@
 .otherSection {
   padding-bottom: 3.625rem;
 }
+
+.hide {
+  display: none;
+}

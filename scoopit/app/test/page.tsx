@@ -4,12 +4,12 @@ import { cookies } from "next/headers";
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data: countries } = await supabase.from("countries").select();
+  let { data: users, error } = await supabase.from("users").select("firstName");
 
   return (
     <ul className="my-auto text-foreground">
-      {countries?.map((country) => (
-        <li key={country.id}>{country.name}</li>
+      {users?.map((user) => (
+        <li>{user.firstName}</li>
       ))}
     </ul>
   );

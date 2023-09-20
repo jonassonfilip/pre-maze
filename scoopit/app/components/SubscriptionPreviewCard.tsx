@@ -1,25 +1,36 @@
 import Image from "next/image";
 import styles from "./SubscriptionPreviewCard.module.css";
 
-export default function SubscriptionPreviewCard() {
+interface SubscriptionPreviewCardProp {
+  src: string;
+  name: string;
+  width: number;
+  height: number;
+  alt: string;
+  price: number;
+}
+
+export default function SubscriptionPreviewCard(
+  prop: SubscriptionPreviewCardProp
+) {
   return (
     <>
       <div className={styles.previewCardContainer}>
         <div className={styles.leftSide}>
           <Image
-            src="./images/home/spotify.svg"
-            width={56}
-            height={56}
-            alt="spotify"
+            src={prop.src}
+            width={prop.width}
+            height={prop.height}
+            alt={prop.alt}
           />
           <div className={styles.infoTextPart}>
-            <h2>Spotify</h2>
+            <h2>{prop.name}</h2>
             <p>Pris</p>
           </div>
         </div>
 
         <div className={styles.rightSide}>
-          <p>119kr/mån</p>
+          <p>{prop.price}kr/mån</p>
         </div>
       </div>
     </>

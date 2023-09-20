@@ -1,11 +1,60 @@
-import Head from "next/head";
+"use client";
+import {
+  Session,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import PieChart from "../components/PieChart";
 import SearchBar from "../components/SearchBar";
 import SubscriptionPreviewCard from "../components/SubscriptionPreviewCard";
 import styles from "./home.module.css";
 import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+
+interface ISubscription {
+  name: string;
+  price: number;
+  startDate: Date;
+  img: string;
+}
+
+const supabase = createClientComponentClient();
+
+async function getSubscriptionsFromDB() {
+  const { data: subscriptions, error } = await supabase
+    .from("subscriptions")
+    .select();
+
+  return subscriptions;
+}
 
 export default function Home() {
+  const [subscriptions, setSubscriptions] = useState<ISubscription[] | null>(
+    []
+  );
+
+  useEffect(() => {
+    getSubscriptions();
+  }, []);
+
+  async function getSubscriptions() {
+    let { data: subscriptionsData, error } = await supabase
+      .from("subscriptions")
+      .select();
+    let tmpSubscriptions: ISubscription[] = [];
+    if (subscriptionsData != null) {
+      subscriptionsData.forEach((element) => {
+        tmpSubscriptions.push({
+          name: element.name,
+          price: element.price,
+          img: element.img,
+          startDate: element.startDate,
+        });
+      });
+    }
+    setSubscriptions(tmpSubscriptions);
+  }
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -61,38 +110,42 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         <section className={styles.musicSection}>
           <section className={styles.previewTitleBar}>
             <h2>MUSIK</h2>
             <h2>367KR/MÅN</h2>
           </section>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
-        </section>
 
+          {subscriptions?.map((subscription) => (
+            <SubscriptionPreviewCard
+              alt="Spotify"
+              name={subscription.name}
+              height={55}
+              width={55}
+              price={subscription.price}
+              src="./images/home/spotify.svg"
+            ></SubscriptionPreviewCard>
+          ))}
+        </section>
 
         <section className={styles.booksAndMediaSection}>
           <section className={styles.previewTitleBar}>
             <h2>MUSIK</h2>
             <h2>367KR/MÅN</h2>
           </section>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
         </section>
         <section className={styles.moviesAndTvSection}>
           <section className={styles.previewTitleBar}>
             <h2>MUSIK</h2>
             <h2>367KR/MÅN</h2>
           </section>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
         </section>
         <section className={styles.otherSection}>
           <section className={styles.previewTitleBar}>
             <h2>MUSIK</h2>
             <h2>367KR/MÅN</h2>
           </section>
-          <SubscriptionPreviewCard></SubscriptionPreviewCard>
         </section>
       </div>
     </>

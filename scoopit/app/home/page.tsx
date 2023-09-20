@@ -1,3 +1,4 @@
+import Head from "next/head";
 import PieChart from "../components/PieChart";
 import SearchBar from "../components/SearchBar";
 import SubscriptionPreviewCard from "../components/SubscriptionPreviewCard";

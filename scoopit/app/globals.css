@@ -12,6 +12,8 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "degular-variable";
+  font-variation-settings: "ital" 0, "opsz" 6, "wght" 200;
 }
 
 html,
@@ -21,7 +23,6 @@ body {
 }
 
 body {
-  font-family: "Inter";
   color: #181818;
 }
 
@@ -32,8 +33,7 @@ a {
 
 h1 {
   color: var(--primary-base-dark);
-  font-family: Degular Variable;
-  font-size: 2rem;
+  font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -48,7 +48,6 @@ h2 {
 
 p {
   color: var(--primr-p-bas-mrk, #320029);
-  font-family: Degular Variable;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;

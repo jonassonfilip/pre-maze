@@ -6,6 +6,12 @@
   height: 260px;
 }
 
+.loginWelcome {
+  gap: 8px;
+  padding-left: 20px;
+  padding-top: 74px;
+}
+
 .loginChoices {
   color: var(--primr-p-bas-mrk, #320029);
   font-family: "Inter";
@@ -40,12 +46,15 @@
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
+.continue {
+  width: 100%;
+}
+
 .backArrow {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 20px;
-  padding-top: 46px;
+  padding: 46px 20px 0px 20px;
 }
 
 .circle {

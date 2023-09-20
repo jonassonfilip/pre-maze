@@ -28,10 +28,13 @@ export default function Login() {
               height={24}
             />
           </Link>
+          <p>Logga in</p>
         </div>
 
-        <h2>Välkommen,</h2>
-        <p>Kom igång med Scoopit!</p>
+        <div className={styles.loginWelcome}>
+          <h2>Välkommen,</h2>
+          <p>Kom igång med Scoopit.</p>
+        </div>
       </section>
 
       <section className={styles.loginChoices}>
@@ -40,10 +43,11 @@ export default function Login() {
         </p>
 
         <div className={styles.loginChoice}>
-          <div className={styles.circle}>
-            <Image src={googleLogo} alt="Google logo" width={56} height={56} />
+          <Image src={googleLogo} alt="Google logo" width={56} height={56} />
+
+          <div className={styles.continue}>
+            <p style={{ fontSize: "15px" }}>Fortsätt med Google-konto</p>
           </div>
-          <p>Fortsätt med Google-konto</p>
           <Image
             src={rightArrow}
             alt="Arrow directing to next page"
@@ -53,10 +57,11 @@ export default function Login() {
         </div>
 
         <div className={styles.loginChoice}>
-          <div className={styles.circle}>
-            <Image src={appleLogo} alt="Apple logo" width={56} height={56} />
+          <Image src={appleLogo} alt="Apple logo" width={56} height={56} />
+
+          <div className={styles.continue}>
+            <p style={{ fontSize: "15px" }}>Fortsätt med Apple-konto</p>
           </div>
-          <p>Fortsätt med Apple-konto</p>
           <Image
             src={rightArrow}
             alt="Arrow directing to next page"
@@ -64,23 +69,28 @@ export default function Login() {
             height={24}
           />
         </div>
-        <div className={styles.loginChoice}>
-          <div className={styles.circle}>
+
+        <Link href="./register">
+          <div className={styles.loginChoice}>
             <Image
               src={scoopitLogo}
               alt="Scoopit logo"
               width={56}
               height={56}
             />
+
+            <div className={styles.continue}>
+              <p style={{ fontSize: "15px" }}>Skapa ett Scoopit-konto</p>
+            </div>
+
+            <Image
+              src={rightArrow}
+              alt="Arrow directing to next page"
+              width={24}
+              height={24}
+            />
           </div>
-          <p>Fortsätt med annat konto</p>
-          <Image
-            src={rightArrow}
-            alt="Arrow directing to next page"
-            width={24}
-            height={24}
-          />
-        </div>
+        </Link>
       </section>
     </main>
   );

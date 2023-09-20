@@ -2,23 +2,16 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import scoopImage from "/public/scoop-purple.jpeg";
+import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/Onboarding-button.png";
-import barOne from "/public/Bar1.png";
 import styles from "./page.module.css";
-import RoundButton from "../components/RoundButton";
 
 
 export default function Welcome () {
     return (
         <main>
             <section className={styles.welcomeHeader} style={{
-      backgroundImage: `url(${scoopImage.src})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      margin: '0',
-      width: '100%',
-      height: '502px',
+      backgroundImage: `url(${(scoopImage as any).src})`
     }}>
             </section>
             
@@ -32,14 +25,9 @@ export default function Welcome () {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingLeft: '22px'
+      paddingLeft: '20px'
     }}>
-    <Image
-      src={barOne}
-      alt="Bar that shows where you are"
-      width={78}
-      height={4}
-    />
+    <a href="./login">Hoppa över intro</a>
 
     <Link href="./welcome-second">
       <Image

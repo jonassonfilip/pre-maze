@@ -23,6 +23,12 @@
       position: relative;
 }
 
+.bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
 .welcomeFooter {
     display: flex;
     flex-direction: column;
@@ -30,9 +36,9 @@
     padding: 70px 20px 70px 20px;
   }
 
-/* .nextPage {
+.nextPage {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: '86px'
-} */
+    padding-left: 20px;
+}

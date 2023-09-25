@@ -2,7 +2,6 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import scoopImage from "/public/scoop-grey.png";
 import googleLogo from "/public/icons/google-logo.png";
 import appleLogo from "/public/icons/apple-logo.png";
 import scoopitLogo from "/public/icons/scoopit-logo.png";
@@ -13,12 +12,8 @@ import styles from "./page.module.css";
 export default function Login() {
   return (
     <main>
-      <section
-        className={styles.loginHeader}
-        style={{
-          backgroundImage: `url(${(scoopImage as any).src})`,
-        }}
-      >
+      <section className={styles.loginHeader}>
+        <div className={styles.loginBackground}></div>
         <div className={styles.backArrow}>
           <Link href="javascript:history.back()">
             <Image
@@ -28,7 +23,6 @@ export default function Login() {
               height={24}
             />
           </Link>
-          <p>Logga in</p>
         </div>
 
         <div className={styles.loginWelcome}>
@@ -91,6 +85,15 @@ export default function Login() {
             />
           </div>
         </Link>
+
+        <div className={styles.haveAccount}>
+          <p>
+            Har du redan ett konto?{" "}
+            <a href="./login-account" style={{ color: "#7E0067" }}>
+              Logga in
+            </a>
+          </p>
+        </div>
       </section>
     </main>
   );

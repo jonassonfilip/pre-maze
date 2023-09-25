@@ -5,11 +5,11 @@ import Image from "next/image";
 import goBack from "/public/chevron-left.png";
 import styles from "./page.module.css";
 
-export default function Register() {
+export default function Loginaccount() {
   return (
     <main>
-      <section className={styles.registerHeader}>
-        <div className={styles.registerBackground}></div>
+      <section className={styles.loginHeader}>
+        <div className={styles.loginBackground}></div>
         <div className={styles.backArrow}>
           <Link href="javascript:history.back()">
             <Image
@@ -21,42 +21,34 @@ export default function Register() {
           </Link>
         </div>
 
-        <div className={styles.registerWelcome}>
+        <div className={styles.loginWelcome}>
           <h2>Skapa ett konto</h2>
           <p>Skriv in dina uppgifter och kom igång.</p>
         </div>
       </section>
 
       <section>
-        <form className={styles.registerFields}>
+        <form className={styles.loginFields}>
           <p>Email</p>
           <input
-            className={`${styles.registerField} ${styles.emailField}`}
+            className={`${styles.loginField} ${styles.emailField}`}
             type="email"
             autoComplete="email"
             required
             placeholder="Exempel@mail.se"
           />
 
-          <p>Namn</p>
-          <input
-            className={`${styles.registerField} ${styles.nameField}`}
-            type="text"
-            required
-            placeholder="Ditt namn"
-          />
-
           <p>Lösenord</p>
           <input
-            className={`${styles.registerField} ${styles.passwordField}`}
+            className={`${styles.loginField} ${styles.passwordField}`}
             type="password"
             autoComplete="password"
             required
             placeholder="Lösenord"
           />
 
-          <button type="submit" className={styles.registerButton}>
-            Skapa konto
+          <button type="submit" className={styles.loginButton}>
+            Logga in
           </button>
 
           <div className={styles.keepLoggedIn}>

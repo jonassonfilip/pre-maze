@@ -16,6 +16,7 @@ export default function Welcome() {
           backgroundImage: `url(${(scoopImage as any).src})`,
         }}
       ></section>
+
       <div className={styles.bar}>
         <Image
           src={pageBar}
@@ -24,6 +25,7 @@ export default function Welcome() {
           height={6}
         />
       </div>
+
       <section className={styles.welcomeFooter}>
         <h2>Välkommen till Scoopit!</h2>
         <p>

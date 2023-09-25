@@ -24,3 +24,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+.hide {
+  display: none;
+}

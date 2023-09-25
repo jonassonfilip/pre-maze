@@ -12,13 +12,8 @@ import Image from "next/image";
 import { MouseEvent, useCallback, useEffect, useState } from "react";
 import { EventEmitter } from "stream";
 import { elements } from "chart.js";
+import { ISubscription } from "../components/SubscriptionPreviewCard";
 
-interface ISubscription {
-  name: string;
-  price: number;
-  startDate: Date;
-  img: string;
-}
 enum SubscriptionCategory {
   music = 1,
   booksAndMedia = 2,
@@ -38,9 +33,47 @@ const supabase = createClientComponentClient();
   return subscriptions;
 }*/
 
-function sumAllSubscriptions() {}
+export default function Home() {
+  const [musicSubscriptions, setMusicSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [movieAndTvSubscriptions, setMovieAndTvSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [booksAndMediaSubscriptions, setBooksAndMediaSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [webbAndOtherSubscriptions, setWebbAndOtherSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  const [allSubscriptions, setAllSubscriptions] = useState<
+    ISubscription[] | null
+  >([]);
+  let [totalPrice, setTotalPrice] = useState<number | null>(0);
 
-function onClickCategoryThumbnail(e: MouseEvent) {
+  function onClickCategoryThumbnail(e: MouseEvent) {
+    if (allSubscriptions === null) return;
+
+    const categorySectionIds = new Map<string, number>([
+      ["music", 1],
+      ["book", 2],
+      ["movie", 3],
+      ["webb", 4],
+    ]);
+
+    const categoryThumbnailId = (e.target as Element).id;
+
+    const tmpAllsubscription = [...allSubscriptions];
+    tmpAllsubscription
+      .filter(
+        (sub) => sub.category !== categorySectionIds.get(categoryThumbnailId)
+      )
+      .forEach((sub) => {
+        sub.hidden = true;
+      });
+
+    setAllSubscriptions(tmpAllsubscription);
+    /*
   const allCategoryThumbnailSections = document.querySelectorAll(
     "#categoryThumbnailSection > section"
   );
@@ -64,28 +97,13 @@ function onClickCategoryThumbnail(e: MouseEvent) {
     (("#categoryThumbnailSection > section:not(#" +
       categorySectionIds.get(element.id)) as string) + ")"
   );
+
   otherSections.forEach((element) => {
     element.classList.add(styles.hide);
   });
-}
 
-export default function Home() {
-  const [musicSubscriptions, setMusicSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [movieAndTvSubscriptions, setMovieAndTvSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [booksAndMediaSubscriptions, setBooksAndMediaSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [webbAndOtherSubscriptions, setWebbAndOtherSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [allSubscriptions, setAllSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  let [totalPrice, setTotalPrice] = useState<number | null>(0);
+  */
+  }
 
   useEffect(() => {
     getSubscriptions(SubscriptionCategory.music);
@@ -110,8 +128,6 @@ export default function Home() {
     }
   }
 
-  
-
   async function getSubscriptions(category: SubscriptionCategory) {
     let subscriptionsData;
     if (category !== SubscriptionCategory.all) {
@@ -129,12 +145,19 @@ export default function Home() {
 
     if (subscriptionsData != null) {
       subscriptionsData.forEach((element) => {
-        tmpSubscriptions.push({
+        const tmpSubscription: ISubscription = {
           name: element.name,
           price: element.price,
           img: element.img,
           startDate: element.startDate,
-        });
+          alt: element.name,
+          width: 55,
+          height: 55,
+          category: element.category,
+          hidden: false,
+        };
+
+        tmpSubscriptions.push(tmpSubscription);
       });
     }
 
@@ -245,16 +268,13 @@ export default function Home() {
               <h2>MUSIK</h2>
               <h2>367KR/MÅN</h2>
             </section>
-            {musicSubscriptions?.map((subscription) => (
-              <SubscriptionPreviewCard
-                alt="Spotify"
-                name={subscription.name}
-                height={55}
-                width={55}
-                price={subscription.price}
-                src={subscription.img}
-              ></SubscriptionPreviewCard>
-            ))}
+            {allSubscriptions
+              ?.filter((sub) => sub.category === 1)
+              .map((subscription) => (
+                <SubscriptionPreviewCard
+                  prop={subscription}
+                ></SubscriptionPreviewCard>
+              ))}
           </section>
 
           <section
@@ -265,17 +285,16 @@ export default function Home() {
               <h2>BÖCKER OCH MEDIA</h2>
               <h2>367KR/MÅN</h2>
             </section>
-            {movieAndTvSubscriptions?.map((subscription) => (
-              <SubscriptionPreviewCard
-                alt="Spotify"
-                name={subscription.name}
-                height={55}
-                width={55}
-                price={subscription.price}
-                src={subscription.img}
-              ></SubscriptionPreviewCard>
-            ))}
+
+            {allSubscriptions
+              ?.filter((sub) => sub.category === 2)
+              .map((subscription) => (
+                <SubscriptionPreviewCard
+                  prop={subscription}
+                ></SubscriptionPreviewCard>
+              ))}
           </section>
+
           <section
             className={styles.moviesAndTvSection}
             id="moviesAndTvSection"
@@ -284,11 +303,31 @@ export default function Home() {
               <h2>FILMER OCH SERIER</h2>
               <h2>367KR/MÅN</h2>
             </section>
+
+            <section>
+              {allSubscriptions
+                ?.filter((sub) => sub.category === 3)
+                .map((subscription) => (
+                  <SubscriptionPreviewCard
+                    prop={subscription}
+                  ></SubscriptionPreviewCard>
+                ))}
+            </section>
           </section>
+
           <section className={styles.otherSection} id="otherSection">
             <section className={styles.previewTitleBar}>
-              <h2>WEBB OCH ÖVRIGT</h2>
+              <h2>ÖVRIGT OCH WEBB</h2>
               <h2>367KR/MÅN</h2>
+            </section>
+            <section>
+              {allSubscriptions
+                ?.filter((sub) => sub.category === 4)
+                .map((subscription) => (
+                  <SubscriptionPreviewCard
+                    prop={subscription}
+                  ></SubscriptionPreviewCard>
+                ))}
             </section>
           </section>
         </section>

@@ -1,4 +1,4 @@
-.registerHeader {
+.loginHeader {
   position: relative;
   background-position: center;
   margin: 0;
@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-.registerBackground {
+.loginBackground {
   position: absolute;
   background: url(/scoop-grey.png);
   top: 0px;
@@ -21,17 +21,17 @@
   background-position: center;
 }
 
-.registerWelcome {
+.loginWelcome {
   padding-left: 20px;
   padding-top: 74px;
 }
 
-.registerWelcome h2 {
+.loginWelcome h2 {
   font-size: 22px;
   margin-bottom: 8px;
 }
 
-.registerFields {
+.loginFields {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -40,7 +40,7 @@
   gap: 8px;
 }
 
-.registerField {
+.loginField {
   display: flex;
   flex-direction: row;
   align-self: stretch;
@@ -88,7 +88,7 @@
   padding: 46px 20px 0px 20px;
 }
 
-.registerButton {
+.loginButton {
   width: auto;
   height: 60px;
   background-color: #320029;

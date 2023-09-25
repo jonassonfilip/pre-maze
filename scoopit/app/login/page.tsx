@@ -89,7 +89,7 @@ export default function Login() {
         <div className={styles.haveAccount}>
           <p>
             Har du redan ett konto?{" "}
-            <a href="./haveAccount" style={{ color: "#7E0067" }}>
+            <a href="./login-account" style={{ color: "#7E0067" }}>
               Logga in
             </a>
           </p>

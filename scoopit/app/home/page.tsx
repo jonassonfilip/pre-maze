@@ -9,7 +9,14 @@ import SearchBar from "../components/SearchBar";
 import SubscriptionPreviewCard from "../components/SubscriptionPreviewCard";
 import styles from "./home.module.css";
 import Image from "next/image";
-import { MouseEvent, useCallback, useEffect, useState } from "react";
+import {
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { EventEmitter } from "stream";
 import { elements } from "chart.js";
 import { ISubscription } from "../components/SubscriptionPreviewCard";
@@ -34,22 +41,13 @@ const supabase = createClientComponentClient();
 }*/
 
 export default function Home() {
-  const [musicSubscriptions, setMusicSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [movieAndTvSubscriptions, setMovieAndTvSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [booksAndMediaSubscriptions, setBooksAndMediaSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
-  const [webbAndOtherSubscriptions, setWebbAndOtherSubscriptions] = useState<
-    ISubscription[] | null
-  >([]);
   const [allSubscriptions, setAllSubscriptions] = useState<
     ISubscription[] | null
   >([]);
   let [totalPrice, setTotalPrice] = useState<number | null>(0);
+
+  let [pieData, setPieData] = useState<number[]>([0]);
+  const [totalCategoryCosts, setTotalCategoryCosts] = useState<number[]>([]);
 
   function onClickCategoryThumbnail(e: MouseEvent) {
     if (allSubscriptions === null) return;
@@ -73,52 +71,18 @@ export default function Home() {
       });
 
     setAllSubscriptions(tmpAllsubscription);
-    /*
-  const allCategoryThumbnailSections = document.querySelectorAll(
-    "#categoryThumbnailSection > section"
-  );
-
-  allCategoryThumbnailSections.forEach((element) => {
-    element.classList.remove(styles.hide);
-  });
-
-  const categorySectionIds = new Map<string, string>([
-    ["music", "musicSection"],
-    ["book", "booksAndMediaSection"],
-    ["movie", "moviesAndTvSection"],
-    ["webb", "otherSection"],
-  ]);
-
-  const element = e.target as Element;
-
-  console.log(element.id as string);
-
-  const otherSections = document.querySelectorAll(
-    (("#categoryThumbnailSection > section:not(#" +
-      categorySectionIds.get(element.id)) as string) + ")"
-  );
-
-  otherSections.forEach((element) => {
-    element.classList.add(styles.hide);
-  });
-
-  */
   }
 
   useEffect(() => {
-    getSubscriptions(SubscriptionCategory.music);
-    getSubscriptions(SubscriptionCategory.booksAndMedia);
-    getSubscriptions(SubscriptionCategory.moviesAndTv);
-    getSubscriptions(SubscriptionCategory.other);
     getSubscriptions(SubscriptionCategory.all);
   }, []);
 
   useEffect(() => {
     calcTotalPrice();
+    calcPieData();
   }, [allSubscriptions]);
 
   function calcTotalPrice() {
-    console.log(allSubscriptions);
     if (allSubscriptions !== null) {
       setTotalPrice(
         allSubscriptions.reduce((accumulator, currentObject) => {
@@ -126,6 +90,31 @@ export default function Home() {
         }, 0)
       );
     }
+  }
+
+  function calcPieData() {
+    setPieData([0]);
+    setTotalCategoryCosts([]);
+    const tmpTotalCategoryCost = [];
+
+    let tmpSubscriptions;
+    let totalSubCost: number | undefined = 0;
+    let tmpPieData: number[] = [];
+
+    for (let i = 1; i < 5; i++) {
+      tmpSubscriptions = allSubscriptions?.filter((sub) => sub.category === i);
+
+      totalSubCost = tmpSubscriptions?.reduce((accumulator, currentObject) => {
+        return accumulator + currentObject.price;
+      }, 0);
+
+      tmpPieData.push(totalSubCost ?? 0);
+
+      tmpTotalCategoryCost.push(totalSubCost ?? 0);
+      setTotalCategoryCosts(tmpTotalCategoryCost);
+    }
+
+    setPieData(tmpPieData);
   }
 
   async function getSubscriptions(category: SubscriptionCategory) {
@@ -162,20 +151,6 @@ export default function Home() {
     }
 
     switch (category) {
-      case SubscriptionCategory.music:
-        setMusicSubscriptions(tmpSubscriptions);
-        break;
-      case SubscriptionCategory.booksAndMedia:
-        setBooksAndMediaSubscriptions(tmpSubscriptions);
-        break;
-      case SubscriptionCategory.moviesAndTv:
-        setMovieAndTvSubscriptions(tmpSubscriptions);
-        break;
-
-      case SubscriptionCategory.other:
-        setWebbAndOtherSubscriptions(tmpSubscriptions);
-        break;
-
       case SubscriptionCategory.all:
         setAllSubscriptions(tmpSubscriptions);
         break;
@@ -194,7 +169,7 @@ export default function Home() {
 
         <SearchBar></SearchBar>
 
-        <PieChart></PieChart>
+        <PieChart data={pieData}></PieChart>
 
         <section className={styles.totalCostSection}>
           <p>Totalkostnad/mån</p>
@@ -266,7 +241,7 @@ export default function Home() {
           <section className={styles.musicSection} id="musicSection">
             <section className={styles.previewTitleBar}>
               <h2>MUSIK</h2>
-              <h2>367KR/MÅN</h2>
+              <h2>{totalCategoryCosts[0]}KR/MÅN</h2>
             </section>
             {allSubscriptions
               ?.filter((sub) => sub.category === 1)
@@ -283,7 +258,7 @@ export default function Home() {
           >
             <section className={styles.previewTitleBar}>
               <h2>BÖCKER OCH MEDIA</h2>
-              <h2>367KR/MÅN</h2>
+              <h2>{totalCategoryCosts[1]}KR/MÅN</h2>
             </section>
 
             {allSubscriptions
@@ -301,7 +276,7 @@ export default function Home() {
           >
             <section className={styles.previewTitleBar}>
               <h2>FILMER OCH SERIER</h2>
-              <h2>367KR/MÅN</h2>
+              <h2>{totalCategoryCosts[2]}KR/MÅN</h2>
             </section>
 
             <section>
@@ -318,7 +293,7 @@ export default function Home() {
           <section className={styles.otherSection} id="otherSection">
             <section className={styles.previewTitleBar}>
               <h2>ÖVRIGT OCH WEBB</h2>
-              <h2>367KR/MÅN</h2>
+              <h2>{totalCategoryCosts[3]}KR/MÅN</h2>
             </section>
             <section>
               {allSubscriptions

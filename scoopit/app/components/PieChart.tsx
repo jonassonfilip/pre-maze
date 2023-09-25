@@ -17,13 +17,13 @@ const webbAndOther: string = "#f13c59";
 // Register ChartJS components using ChartJS.register
 ChartJS.register(ArcElement);
 
-export default function PieChart() {
+export default function PieChart(props: any) {
   const pieData = {
     labels: ["Red", "Blue", "Yellow"],
     datasets: [
       {
         label: "My First Dataset",
-        data: [45, 15, 9, 32],
+        data: props.data,
         backgroundColor: [musicColor, booksAndMedia, moviesAndTv, webbAndOther],
         hoverOffset: 4,
       },

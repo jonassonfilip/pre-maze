@@ -39,13 +39,16 @@ export default function Syncsubscriptions() {
         </button>
 
         <div className={styles.acceptTerms}>
-          <input
-            type="checkbox"
-            id="keepLoggedIn"
-            className={styles.checkbox}
-          />
-          <label htmlFor="keepLoggedIn" className={styles.checkboxLabel}>
-            <h2>Håll mig inloggad</h2>
+          <input type="checkbox" className={styles.checkbox} />
+          <label htmlFor="keepLoggedIn" className={styles.acceptTermsInfo}>
+            <p>
+              Ja, jag tillåter att Scoopit sköter registrering och hantering av
+              mina abonnemang enligt{" "}
+              <a href="terms" className={styles.terms}>
+                dessa villkor
+              </a>
+              .
+            </p>
           </label>
         </div>
       </section>

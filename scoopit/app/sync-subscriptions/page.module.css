@@ -1,4 +1,4 @@
-.loginHeader {
+.syncHeader {
   position: relative;
   background-position: center;
   margin: 0;
@@ -7,78 +7,46 @@
   overflow: hidden;
 }
 
-.loginBackground {
+.syncBackground {
   position: absolute;
   background: url(/scoop-grey.png);
   top: 0px;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1; /* Place it behind other content */
+  z-index: -1;
   opacity: 0.5;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-.loginWelcome {
+.syncWelcome {
   padding-left: 20px;
   padding-top: 74px;
 }
 
-.loginWelcome h2 {
+.syncWelcome h2 {
   font-size: 22px;
   margin-bottom: 8px;
 }
 
-.loginFields {
+.sync {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin: 0;
-  padding: 46px 16px;
-  gap: 8px;
-}
-
-.loginField {
-  display: flex;
-  flex-direction: row;
-  align-self: stretch;
-  height: 45px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  padding-left: 30px;
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-}
-
-.emailField {
-  padding-left: 30px;
-  background-image: url(/icons/ikoner/envelope.png);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-}
-
-.nameField {
-  padding-left: 30px;
-  background-image: url(/icons/ikoner/person.png);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-}
-
-.passwordField {
-  padding-left: 30px;
-  background-image: url(/icons/ikoner/lock.png);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-}
-
-.loginButton {
+  justify-content: center;
   width: auto;
+}
+
+.syncInfo {
+  margin: 54px 28px 115px 28px;
+}
+
+.syncButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
   height: 60px;
   background-color: #320029;
   border-radius: 50px;
@@ -87,11 +55,26 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-top: 32px;
-  margin-bottom: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.keepLoggedIn {
+.syncManual {
+  margin: 16px 16px;
+  color: var(--primr-p-bas-mrk, #320029);
+  border: 1px solid var(--gradient-ram, rgba(204, 135, 0, 0.1));
+  background: var(
+    --gradient-kort,
+    linear-gradient(
+      137deg,
+      rgba(242, 179, 96, 0.1) -4.41%,
+      rgba(248, 248, 248, 0) 85.07%
+    )
+  );
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.acceptTerms {
   display: flex;
   justify-content: space-between;
   align-items: center;

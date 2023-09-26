@@ -2,7 +2,7 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import goBack from "/public/chevron-left.png";
+import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
 
 export default function Loginaccount() {
@@ -10,19 +10,10 @@ export default function Loginaccount() {
     <main>
       <section className={styles.loginHeader}>
         <div className={styles.loginBackground}></div>
-        <div className={styles.backArrow}>
-          <Link href="javascript:history.back()">
-            <Image
-              src={goBack}
-              alt="An arrow pointing back, taking you to the previous page"
-              width={24}
-              height={24}
-            />
-          </Link>
-        </div>
+        <BackArrow></BackArrow>
 
         <div className={styles.loginWelcome}>
-          <h2>Skapa ett konto</h2>
+          <h2>Logga in med ditt konto</h2>
           <p>Skriv in dina uppgifter och kom igång.</p>
         </div>
       </section>

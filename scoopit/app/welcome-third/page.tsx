@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scoopImage from "/public/scoop-grey.png";
 import roundButton from "/public/get-started.png";
-import goBack from "/public/chevron-left.png";
+import BackArrow from "../components/BackArrow";
 import pageBar from "/public/Bar3.png";
 import styles from "./page.module.css";
 
@@ -18,16 +18,7 @@ export default function Welcome() {
           position: "relative",
         }}
       >
-        <div className={styles.backArrow}>
-          <Link href="javascript:history.back()">
-            <Image
-              src={goBack}
-              alt="An arrow pointing back, taking you to the previous page"
-              width={24}
-              height={24}
-            />
-          </Link>
-        </div>
+        <BackArrow></BackArrow>
       </section>
 
       <div className={styles.bar}>

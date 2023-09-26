@@ -2,7 +2,7 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import goBack from "/public/chevron-left.png";
+import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
 
 export default function Register() {
@@ -10,16 +10,7 @@ export default function Register() {
     <main>
       <section className={styles.registerHeader}>
         <div className={styles.registerBackground}></div>
-        <div className={styles.backArrow}>
-          <Link href="javascript:history.back()">
-            <Image
-              src={goBack}
-              alt="An arrow pointing back, taking you to the previous page"
-              width={24}
-              height={24}
-            />
-          </Link>
-        </div>
+        <BackArrow></BackArrow>
 
         <div className={styles.registerWelcome}>
           <h2>Skapa ett konto</h2>

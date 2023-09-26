@@ -15,7 +15,7 @@
   bottom: 0;
   left: 0;
   z-index: -1; /* Place it behind other content */
-  opacity: 0.5;
+  opacity: 0.2;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

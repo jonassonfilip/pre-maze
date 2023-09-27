@@ -21,8 +21,11 @@ import { EventEmitter } from "stream";
 import { elements } from "chart.js";
 import { ISubscription } from "../components/SubscriptionPreviewCard";
 import NavBar from "../components/NavBar";
-import Menu from "../components/Menu";
-import AddSubscription from "../components/AddSubscription";
+import Menu from "../components/MainMenu";
+import AddSubscription from "../components/AddSubscriptionMenu";
+import NotificationMenu from "../components/NotificationMenu";
+import MainMenu from "../components/MainMenu";
+import AddSubscriptionMenu from "../components/AddSubscriptionMenu";
 
 enum SubscriptionCategory {
   music = 1,
@@ -51,6 +54,7 @@ export default function Home() {
 
   let [pieData, setPieData] = useState<number[]>([0]);
   const [totalCategoryCosts, setTotalCategoryCosts] = useState<number[]>([]);
+
 
   function onClickCategoryThumbnail(e: MouseEvent) {
     if (allSubscriptions === null) return;
@@ -310,7 +314,7 @@ export default function Home() {
           </section>
         </section>
       </div>
-      <AddSubscription></AddSubscription>
+      <NavBar></NavBar>
     </>
   );
 }

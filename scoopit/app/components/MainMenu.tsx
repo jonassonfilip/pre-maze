@@ -3,11 +3,16 @@
 import styles from "./Menu.module.css";
 import Image from "next/image";
 
+export interface MenuProp {
+  hidden: boolean;
+}
 
-export default function Menu() {
+export default function MainMenu(prop: MenuProp) {
   return (
     <>
-      <section className={styles.overlayMenu}>
+      <section
+        className={`${styles.overlayMenu} ${prop.hidden ? styles.hide : ""}`}
+      >
         <h4 className={styles.menuHeader}>Meny</h4>
         <section>
           <div className={styles.menuCard}>

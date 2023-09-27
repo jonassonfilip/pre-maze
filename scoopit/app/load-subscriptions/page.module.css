@@ -14,17 +14,31 @@
   justify-content: start;
 }
 
-.logo {
+.gif {
+  position: absolute;
   display: flex;
   justify-content: center;
+  width: 100%;
+  top: 35%;
+  z-index: 2;
+}
+
+.logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: end;
+  width: 100%;
+  top: 90%;
   color: var(--primr-bas, #fff);
   font-size: 33.649px;
   font-weight: 400;
+  z-index: 2;
 }
 
 .loadingText {
   color: var(--primr-bas, #fff);
   font-weight: 400;
   line-height: normal;
-  margin: 192px 0px 400px 28px;
+  margin: 152px 0px 400px 28px;
 }

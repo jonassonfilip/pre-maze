@@ -1,15 +1,40 @@
 // components/MyLineChart.tsx
 "use client";
-import styles from "./Menu.module.css";
-import Image from "next/image";
+import { Chart as ChartJS, ArcElement } from "chart.js";
+import { read } from "fs";
+import { Pie } from "react-chartjs-2";
 
-export default function Menu() {
+/*--color-music: #f2b360;
+--color-books-and-media: #81ced5;
+--color-movies-and-tv: #bc6cca;
+--color-webb-and-other: #f13c59;*/
+
+const musicColor: string = "#f2b360";
+const booksAndMedia: string = "#81ced5";
+const moviesAndTv: string = "#bc6cca";
+const webbAndOther: string = "#f13c59";
+
+// Register ChartJS components using ChartJS.register
+ChartJS.register(ArcElement);
+
+export default function PieChart(props: any) {
+  const pieData = {
+    labels: ["Red", "Blue", "Yellow"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: props.data,
+        backgroundColor: [musicColor, booksAndMedia, moviesAndTv, webbAndOther],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
   return (
     <>
-      <section className={styles.overlayMenu}>
-        <h4 className={styles.menuHeader}>Meny</h4>
-        
-      </section>
+      <div>
+        <Pie data={pieData}></Pie>
+      </div>
     </>
   );
 }

@@ -23,10 +23,59 @@
 }
 
 .menuHeader {
-  padding: 20px;
+  padding: 10px;
   display: block;
   border-radius: 10px;
   background: var(--primr-bas, #fff);
+
+  /* Card shade */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.dropDownCategory {
+  padding: 0 20px;
+  font: "degular-variable";
+}
+.dropDownCategoryBorder {
+  border-radius: 8px;
+  border-color: var(--primary-base-light) !important;
+}
+
+.textInput {
+  width: 80%;
+  padding: 8px 16px;
+
+  border-radius: 8px;
+  border: 1px solid var(--primr-p-bas-kontrast-opak, rgba(126, 0, 103, 0.1));
+  background: var(--primr-bas, #fff);
+
+  /* Card shade */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addButton {
+  margin-top: 40px;
+  color: var(--primr-p-bas-ljus, #e0c2db);
+  font-family: "degular-variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  height: 53px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 55px;
+  background: var(--primr-p-bas-mrk, #320029);
 
   /* Card shade */
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);

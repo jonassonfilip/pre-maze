@@ -22,6 +22,7 @@ import { elements } from "chart.js";
 import { ISubscription } from "../components/SubscriptionPreviewCard";
 import NavBar from "../components/NavBar";
 import Menu from "../components/Menu";
+import AddSubscription from "../components/AddSubscription";
 
 enum SubscriptionCategory {
   music = 1,
@@ -309,9 +310,7 @@ export default function Home() {
           </section>
         </section>
       </div>
-
-      <NavBar></NavBar>
-      <Menu></Menu>
+      <AddSubscription></AddSubscription>
     </>
   );
 }

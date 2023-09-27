@@ -12,10 +12,11 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: center;
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
   color: var(--primr-bas, #fff);
   font-size: 33.649px;
   font-weight: 400;
@@ -25,5 +26,5 @@
   color: var(--primr-bas, #fff);
   font-weight: 400;
   line-height: normal;
-  margin-top: 192px;
+  margin: 192px 0px 400px 28px;
 }

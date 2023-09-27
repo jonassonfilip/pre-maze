@@ -20,6 +20,8 @@ import {
 import { EventEmitter } from "stream";
 import { elements } from "chart.js";
 import { ISubscription } from "../components/SubscriptionPreviewCard";
+import NavBar from "../components/NavBar";
+import Menu from "../components/Menu";
 
 enum SubscriptionCategory {
   music = 1,
@@ -307,6 +309,9 @@ export default function Home() {
           </section>
         </section>
       </div>
+
+      <NavBar></NavBar>
+      <Menu></Menu>
     </>
   );
 }

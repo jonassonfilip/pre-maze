@@ -1,8 +1,18 @@
-.startPage {
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
+.page {
   position: relative;
+  height: 100vh;
+  z-index: 1;
+}
+
+.logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: end;
+  width: 100%;
+  top: 95%;
+  color: var(--primr-bas, #fff);
+  font-size: 33.649px;
+  font-weight: 400;
+  z-index: 2;
 }

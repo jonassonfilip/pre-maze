@@ -1,0 +1,30 @@
+.page {
+  position: relative;
+  height: 100vh;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  color: var(--primr-bas, #fff);
+  font-size: 33.649px;
+  font-weight: 400;
+}
+
+.loadingText {
+  color: var(--primr-bas, #fff);
+  font-weight: 400;
+  line-height: normal;
+  margin: 192px 0px 400px 28px;
+}

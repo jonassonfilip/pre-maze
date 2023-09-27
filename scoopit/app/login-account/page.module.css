@@ -15,7 +15,7 @@
   bottom: 0;
   left: 0;
   z-index: -1; /* Place it behind other content */
-  opacity: 0.5;
+  opacity: 0.2;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -75,17 +75,6 @@
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 5px center;
-}
-
-.continue {
-  width: 100%;
-}
-
-.backArrow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 46px 20px 0px 20px;
 }
 
 .loginButton {

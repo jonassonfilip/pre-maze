@@ -6,7 +6,7 @@ import googleLogo from "/public/icons/google-logo.png";
 import appleLogo from "/public/icons/apple-logo.png";
 import scoopitLogo from "/public/icons/scoopit-logo.png";
 import rightArrow from "/public/chevron-right.png";
-import goBack from "/public/chevron-left.png";
+import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
 
 export default function Login() {
@@ -14,16 +14,7 @@ export default function Login() {
     <main>
       <section className={styles.loginHeader}>
         <div className={styles.loginBackground}></div>
-        <div className={styles.backArrow}>
-          <Link href="javascript:history.back()">
-            <Image
-              src={goBack}
-              alt="An arrow pointing back, taking you to the previous page"
-              width={24}
-              height={24}
-            />
-          </Link>
-        </div>
+        <BackArrow></BackArrow>
 
         <div className={styles.loginWelcome}>
           <h2>Välkommen,</h2>

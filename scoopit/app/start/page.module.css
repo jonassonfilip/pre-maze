@@ -4,13 +4,22 @@
   z-index: 1;
 }
 
+.gif {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 35%;
+  z-index: 2;
+}
+
 .logo {
   position: absolute;
   display: flex;
   justify-content: center;
   text-align: end;
   width: 100%;
-  top: 95%;
+  top: 90%;
   color: var(--primr-bas, #fff);
   font-size: 33.649px;
   font-weight: 400;

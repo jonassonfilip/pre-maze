@@ -1,5 +1,6 @@
 import React from "react";
 import LoadingBackground from "../components/LoadingBackground";
+import Scoopitgif from "../components/ScoopitGif";
 import styles from "./page.module.css";
 
 export default function LoadSubscriptions() {
@@ -11,6 +12,9 @@ export default function LoadSubscriptions() {
           Dina appar skopas nu upp i Scoopit.
           <br />
           Det kan ta en stund...
+        </div>
+        <div className={styles.gif}>
+          <Scoopitgif></Scoopitgif>
         </div>
         <div className={styles.logo}>
           <h2>scoopit</h2>

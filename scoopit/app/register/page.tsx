@@ -46,9 +46,9 @@ export default function Register() {
             placeholder="Lösenord"
           />
 
-          <button type="submit" className={styles.registerButton}>
-            Skapa konto
-          </button>
+          <Link href="./sync-subscriptions">
+            <div className={styles.registerButton}>Skapa konto</div>
+          </Link>
 
           <div className={styles.keepLoggedIn}>
             <input

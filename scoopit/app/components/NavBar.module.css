@@ -32,7 +32,10 @@
   gap: 8px;
 
   border-radius: 48px;
-  background: #e2c0dd;
+  background: #FFE2FA;
+  border-color: #7e0067;
+  border-style: solid;
+  border-width: 0.1px;
 }
 
 .addButton {

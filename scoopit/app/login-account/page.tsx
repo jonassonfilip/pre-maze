@@ -1,11 +1,39 @@
+"use client";
 import { type } from "os";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function Loginaccount() {
+  const supabase = createClientComponentClient();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    document.location.href = "/home";
+    console.log(error);
+    console.log(data);
+  }
   return (
     <main>
       <section className={styles.loginHeader}>
@@ -19,13 +47,16 @@ export default function Loginaccount() {
       </section>
 
       <section>
-        <form className={styles.loginFields}>
+        <form className={styles.loginFields} onSubmit={handleSubmit}>
           <p>Email</p>
           <input
             className={`${styles.loginField} ${styles.emailField}`}
             type="email"
             autoComplete="email"
+            name="email"
             required
+            value={formData.email}
+            onChange={handleInputChange}
             placeholder="Exempel@mail.se"
           />
 
@@ -35,12 +66,13 @@ export default function Loginaccount() {
             type="password"
             autoComplete="password"
             required
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
             placeholder="Lösenord"
           />
 
-          <Link href="./home">
-            <div className={styles.loginButton}>Logga in</div>
-          </Link>
+          <button type="submit">Logga In</button>
 
           <div className={styles.keepLoggedIn}>
             <input

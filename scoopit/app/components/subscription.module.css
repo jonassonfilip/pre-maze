@@ -1,0 +1,96 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    linear-gradient(
+      0deg,
+      var(--frger-musik, #f2b360) 0%,
+      var(--frger-musik, #f2b360) 100%
+    ),
+    linear-gradient(180deg, #fff 28.63%, #f2b360 44.72%);
+}
+
+.topHeader {
+  padding-top: 32px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.bottomHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  margin-top: 40px;
+}
+
+.header h3 {
+  color: var(--primr-bas, #fff);
+  font-family: "degular-variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header h2 {
+  color: var(--primr-bas, #fff);
+  text-align: right;
+
+  /* title/L */
+  font-family: "degular-variable";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.infoCard h3 {
+  color: var(--primr-p-bas-mrk, #320029);
+
+  /* title/S */
+  font-family: "degular-variable";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.subscriptionOverlay {
+  border-radius: 32px;
+  background: var(--primr-bas, #fff);
+  height: 500px;
+}
+
+.contentSec {
+  margin: 20px;
+}
+
+.infoCard {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoCard h4 {
+  color: var(--primr-p-bas-mrk, #320029);
+
+  /* title/XXS/bold */
+  font-family: "degular-variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 10px;
+}
+
+.infoCardContent {
+  display: flex;
+
+  justify-content: space-between;
+}

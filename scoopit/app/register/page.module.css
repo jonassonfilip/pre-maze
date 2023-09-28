@@ -83,7 +83,7 @@
   padding: 46px 20px 0px 20px;
 }
 
-.registerButton {
+#registerButton {
   display: flex;
   align-items: center;
   justify-content: center;

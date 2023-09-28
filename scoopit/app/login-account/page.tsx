@@ -71,7 +71,27 @@ export default function Loginaccount() {
             placeholder="Lösenord"
           />
 
-          <button type="submit">Logga In</button>
+          <button
+            type="submit"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "auto",
+              height: "60px",
+              backgroundColor: "#320029",
+              borderRadius: "50px",
+              color: "var(--primr-p-bas-ljus, #ffe2fa)",
+              fontSize: "16px",
+              fontStyle: "normal",
+              fontWeight: "600",
+              lineHeight: "normal",
+              marginTop: "32px",
+              marginBottom: "8px",
+            }}
+          >
+            Logga in
+          </button>
 
           <div className={styles.keepLoggedIn}>
             <input

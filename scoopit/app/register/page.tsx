@@ -84,7 +84,27 @@ export default function Register() {
               onChange={handleInputChange}
             />
 
-            <button type="submit">Submit</button>
+            <button
+              type="submit"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "auto",
+                height: "60px",
+                backgroundColor: "#320029",
+                borderRadius: "50px",
+                color: "var(--primr-p-bas-ljus, #ffe2fa)",
+                fontSize: "16px",
+                fontStyle: "normal",
+                fontWeight: "600",
+                lineHeight: "normal",
+                marginTop: "32px",
+                marginBottom: "8px",
+              }}
+            >
+              Skapa konto
+            </button>
 
             <div className={styles.keepLoggedIn}>
               <input

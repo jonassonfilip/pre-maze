@@ -13,7 +13,7 @@ export default function Syncsubscriptions() {
         <BackArrow></BackArrow>
 
         <div className={styles.syncWelcome}>
-          <h2>Lägg till alla dina abonnemang</h2>
+          <h2>LÄGG TILL DINA ABONNEMANG</h2>
           <p>Med ett klick sköter Scoopit allt!</p>
         </div>
       </section>

@@ -1,8 +1,8 @@
 .welcomeHeader {
-  background-size: cover;
-  background-position: center;
   margin: 0;
-  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
   height: 502px;
   position: relative;
 }

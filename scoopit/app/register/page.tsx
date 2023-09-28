@@ -41,7 +41,7 @@ export default function Register() {
           <BackArrow></BackArrow>
 
           <div className={styles.registerWelcome}>
-            <h2>Skapa ett konto</h2>
+            <h2>SKAPA ETT KONTO</h2>
             <p>Skriv in dina uppgifter och kom igång.</p>
           </div>
         </section>

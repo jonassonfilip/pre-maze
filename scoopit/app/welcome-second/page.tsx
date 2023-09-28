@@ -2,7 +2,7 @@ import { type } from "os";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import scoopImage from "/public/scoop-grey.png";
+import scoopImage from "/public/scoopit-animation.gif";
 import roundButton from "/public/Onboarding-button.png";
 import BackArrow from "../components/BackArrow";
 import pageBar from "/public/Bar2.png";

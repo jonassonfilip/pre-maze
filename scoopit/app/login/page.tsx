@@ -18,7 +18,7 @@ export default function Login() {
         <BackArrow></BackArrow>
 
         <div className={styles.loginWelcome}>
-          <h2>Välkommen,</h2>
+          <h2>VÄLKOMMEN,</h2>
           <p>Kom igång med Scoopit.</p>
         </div>
       </section>

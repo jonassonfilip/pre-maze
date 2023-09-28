@@ -2,7 +2,6 @@
 import { type } from "os";
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -41,7 +40,7 @@ export default function Loginaccount() {
         <BackArrow></BackArrow>
 
         <div className={styles.loginWelcome}>
-          <h2>Logga in med ditt konto</h2>
+          <h2>LOGGA IN MED DITT KONTO</h2>
           <p>Skriv in dina uppgifter och kom igång.</p>
         </div>
       </section>

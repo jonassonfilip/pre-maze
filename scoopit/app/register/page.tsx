@@ -1,67 +1,104 @@
+"use client";
 import { type } from "os";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import BackArrow from "../components/BackArrow";
 import styles from "./page.module.css";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function Register() {
+  const supabase = createClientComponentClient();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    document.location.href = "/home";
+  }
+
   return (
-    <main>
-      <section className={styles.registerHeader}>
-        <div className={styles.registerBackground}></div>
-        <BackArrow></BackArrow>
+    <>
+      <main>
+        <section className={styles.registerHeader}>
+          <div className={styles.registerBackground}></div>
+          <BackArrow></BackArrow>
 
-        <div className={styles.registerWelcome}>
-          <h2>Skapa ett konto</h2>
-          <p>Skriv in dina uppgifter och kom igång.</p>
-        </div>
-      </section>
-
-      <section>
-        <form className={styles.registerFields}>
-          <p>Email</p>
-          <input
-            className={`${styles.registerField} ${styles.emailField}`}
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="Exempel@mail.se"
-          />
-
-          <p>Namn</p>
-          <input
-            className={`${styles.registerField} ${styles.nameField}`}
-            type="text"
-            required
-            placeholder="Ditt namn"
-          />
-
-          <p>Lösenord</p>
-          <input
-            className={`${styles.registerField} ${styles.passwordField}`}
-            type="password"
-            autoComplete="password"
-            required
-            placeholder="Lösenord"
-          />
-
-          <Link href="./sync-subscriptions">
-            <div className={styles.registerButton}>Skapa konto</div>
-          </Link>
-
-          <div className={styles.keepLoggedIn}>
-            <input
-              type="checkbox"
-              id="keepLoggedIn"
-              className={styles.checkbox}
-            />
-            <label htmlFor="keepLoggedIn" className={styles.checkboxLabel}>
-              <h2>Håll mig inloggad</h2>
-            </label>
+          <div className={styles.registerWelcome}>
+            <h2>Skapa ett konto</h2>
+            <p>Skriv in dina uppgifter och kom igång.</p>
           </div>
-        </form>
-      </section>
-    </main>
+        </section>
+
+        <section>
+          <form className={styles.registerFields} onSubmit={handleSubmit}>
+            <p>Email</p>
+            <input
+              id="registered"
+              className={`${styles.registerField} ${styles.emailField}`}
+              type="email"
+              autoComplete="email"
+              name="email"
+              required
+              placeholder="Exempel@mail.se"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+
+            <p>Namn</p>
+            <input
+              className={`${styles.registerField} ${styles.nameField}`}
+              type="text"
+              name="name"
+              placeholder="Ditt namn"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+
+            <p>Lösenord</p>
+            <input
+              id="registerdPassword"
+              className={`${styles.registerField} ${styles.passwordField}`}
+              type="password"
+              name="password"
+              autoComplete="password"
+              required
+              placeholder="Lösenord"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+
+            <button type="submit">Submit</button>
+
+            <div className={styles.keepLoggedIn}>
+              <input
+                type="checkbox"
+                id="keepLoggedIn"
+                className={styles.checkbox}
+              />
+              <label htmlFor="keepLoggedIn" className={styles.checkboxLabel}>
+                <h2>Håll mig inloggad</h2>
+              </label>
+            </div>
+          </form>
+        </section>
+      </main>
+    </>
   );
 }

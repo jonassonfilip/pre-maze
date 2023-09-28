@@ -27,15 +27,16 @@ export default function Syncsubscriptions() {
           Slipp allt krångel och kom igång!
         </p>
 
-        <Link href="./load-subscriptions">
-          <div className={styles.syncButton}>Lägg till automatiskt</div>
-        </Link>
+        <div className={styles.syncButton}>
+          <Link href="./welcome">Lägg till automatiskt</Link>
+        </div>
 
-        <Link href="./load-manual">
-          <div className={`${styles.syncButton} ${styles.syncManual}`}>
-            Lägg till manuellt
-          </div>
-        </Link>
+        <button
+          type="submit"
+          className={`${styles.syncButton} ${styles.syncManual}`}
+        >
+          Lägg till manuellt
+        </button>
 
         <div className={styles.acceptTerms}>
           <input type="checkbox" className={styles.checkbox} />

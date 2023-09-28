@@ -38,9 +38,9 @@ export default function Loginaccount() {
             placeholder="Lösenord"
           />
 
-          <button type="submit" className={styles.loginButton}>
-            Logga in
-          </button>
+          <Link href="./home">
+            <div className={styles.loginButton}>Logga in</div>
+          </Link>
 
           <div className={styles.keepLoggedIn}>
             <input

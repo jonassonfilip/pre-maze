@@ -55,7 +55,6 @@ export default function Home() {
   let [pieData, setPieData] = useState<number[]>([0]);
   const [totalCategoryCosts, setTotalCategoryCosts] = useState<number[]>([]);
 
-
   function onClickCategoryThumbnail(e: MouseEvent) {
     if (allSubscriptions === null) return;
 
@@ -82,6 +81,12 @@ export default function Home() {
 
   useEffect(() => {
     getSubscriptions(SubscriptionCategory.all);
+    Notification.requestPermission().then((perm) => {
+      if (perm === "granted") {
+        new Notification("You got mail");
+      }
+      startTimer();
+    });
   }, []);
 
   useEffect(() => {
@@ -164,6 +169,29 @@ export default function Home() {
 
       default:
         break;
+    }
+  }
+
+  let timer: NodeJS.Timeout | null = null;
+
+  function startTimer() {
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(() => {
+      new Notification("You got mail");
+      stopTimer();
+    }, 3000); // 10 seconds in milliseconds
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+      console.log("Timer stopped");
+    } else {
+      console.log("No timer to stop");
     }
   }
 

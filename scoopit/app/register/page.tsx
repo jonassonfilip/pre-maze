@@ -46,7 +46,7 @@ export default function Register() {
             placeholder="Lösenord"
           />
 
-          <Link href="./login-account">
+          <Link href="./sync-subscriptions">
             <div className={styles.registerButton}>Skapa konto</div>
           </Link>
 

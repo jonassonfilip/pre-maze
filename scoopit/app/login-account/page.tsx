@@ -71,7 +71,11 @@ export default function Loginaccount() {
             placeholder="Lösenord"
           />
 
-          <button
+          <Link href="./sync-subscriptions">
+            <div className={styles.loginButton}>Logga in</div>
+          </Link>
+
+          {/* <button
             type="submit"
             style={{
               display: "flex",
@@ -91,7 +95,7 @@ export default function Loginaccount() {
             }}
           >
             Logga in
-          </button>
+          </button> */}
 
           <div className={styles.keepLoggedIn}>
             <input

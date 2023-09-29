@@ -1,29 +1,55 @@
 .addHeader {
-  position: relative;
-  background-position: center;
-  font-size: 22px;
-  margin: 0;
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
+  display: flex;
+  width: 350px;
+  height: 83px;
+  padding: 10px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin-top: 46px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.sync {
+.addSubscriptions {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: auto;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  margin-bottom: 80px;
 }
 
-.syncInfo {
-  margin: 54px 28px 115px 28px;
-}
-
-.syncButton {
+.subscription {
   display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: 350px;
+  display: flex;
+  width: 350px;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 8px;
+  background: var(--primr-bas, #fff);
+
+  /* Card shade */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* .addInfo {
+  margin: 54px 28px 115px 28px;
+} */
+
+.addButton {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 60px;
+  width: 350px;
   background-color: #320029;
   border-radius: 50px;
   color: var(--primr-p-bas-ljus, #ffe2fa);
@@ -33,43 +59,8 @@
   line-height: normal;
   margin-left: 20px;
   margin-right: 20px;
-}
-
-.syncManual {
-  margin: 16px 16px;
-  color: var(--primr-p-bas-mrk, #320029);
-  border: 1px solid var(--gradient-ram, rgba(204, 135, 0, 0.1));
-  background: var(
-    --gradient-kort,
-    linear-gradient(
-      137deg,
-      rgba(242, 179, 96, 0.1) -4.41%,
-      rgba(248, 248, 248, 0) 85.07%
-    )
-  );
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
-}
-
-.acceptTerms {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  padding: 0px 16px;
-  color: var(--primr-p-bas-mrk, #320029);
-  margin-bottom: 32px;
-}
-
-.acceptTermsInfo {
-  display: flex;
-  text-align: start;
-  width: auto;
-  height: auto;
-  color: var(--primr-p-bas-mrk, #320029);
-  font-family: Lato;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px;
+  position: fixed;
+  bottom: 0;
 }
 
 .checkbox {
@@ -86,9 +77,4 @@
   border-radius: 3.556px;
   border: 0.356px solid var(--primr-p-bas-mrk, #320029);
   accent-color: var(--primr-p-bas-ljus, #e0c2db);
-}
-
-.terms {
-  color: #0037c3;
-  text-decoration-line: underline;
 }

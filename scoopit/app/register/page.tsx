@@ -84,7 +84,7 @@ export default function Register() {
               onChange={handleInputChange}
             />
 
-            <button
+            {/* <button
               type="submit"
               style={{
                 display: "flex",
@@ -104,7 +104,11 @@ export default function Register() {
               }}
             >
               Skapa konto
-            </button>
+            </button> */}
+
+            <Link href="./sync-subscriptions">
+              <div className={styles.registerButton}>Skapa konto</div>
+            </Link>
 
             <div className={styles.keepLoggedIn}>
               <input

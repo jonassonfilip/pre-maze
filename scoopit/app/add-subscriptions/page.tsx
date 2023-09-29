@@ -47,8 +47,8 @@ export default function Addsubscriptions() {
         </div>
 
         <div className={styles.subscription}>
-          <Image src={audiable} alt="Audiable logo" width={56} height={56} />
-          <h2>Audiable</h2>
+          <Image src={audiable} alt="Audible logo" width={56} height={56} />
+          <h2>Audible</h2>
           <input
             type="checkbox"
             id="keepLoggedIn"

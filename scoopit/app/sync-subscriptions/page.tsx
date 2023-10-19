@@ -38,7 +38,7 @@ export default function Syncsubscriptions() {
         </Link>
 
         <div className={styles.acceptTerms}>
-          <input type="checkbox" className={styles.checkbox} />
+          <input type="checkbox" className={styles.checkbox} required />
           <label htmlFor="keepLoggedIn" className={styles.acceptTermsInfo}>
             <p>
               Ja, jag tillåter att Scoopit sköter registrering och hantering av
